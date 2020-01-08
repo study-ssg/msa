@@ -1,10 +1,9 @@
-# 쿠팡 MSA - Part1
+# 쿠팡 MSA 
 https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EC%97%AC%EC%A0%95-94678fe9eb61
 
-
-## 기존  Legacy Pain Point - 레거시 구조는 현재 우리 구조랑 비슷해 보임
-### 1. 부분의 장애가 전체의 서비스 장애로 확대되는 문제가 있다.
-#### - 배송의 장애가 주문의 장애로까지 이어져서는 안된다.
+## Legacy Pain Point (레거시 구조는 현재 우리 구조랑 비슷해 보였음)
+1. 부분의 장애가 전체의 서비스 장애로 확대되는 문제가 있다.
+- 배송의 장애가 주문의 장애로까지 이어져서는 안된다.
 2. Monolithic architecture는 부분적인 Scale-out을 하기 어렵다.
  - 필요한 부분의 Scale-out을 위해 전체를 Scale-out해야한는 상황
 3. 여러 컴포넌트가 하나의 서비스에 강결합 형태로 되어 있어 서비스의 변경이 매우 어렵고, 수정시 장애 영향도를 파악하기 힘들다.
@@ -14,8 +13,7 @@ https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%
 5. Monolithic architecture에서 조직(개발자/팀)이 성장할수록, 배포의 대기 시간이 비약적으로 증가한다.
  - ex) pd-lib의 간단한 수정이지만 얽힌 코드가 많아 정기배포를 이용해야함.
 
-쿠팡의 MSA 전략
-
+## 쿠팡의 MSA 전략
 1. Vitamin Framework의 개발 
 - micro service architecture를 위한 Java 기반의 framework
 - micro service architecture를 위한 표준 skeleton code template을 포함.
@@ -27,7 +25,7 @@ https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%
 3. Message Queue를 이용한 Transaction 의 분리
 - 주문 데이터 생성 후 카프카로 message 전송 배송은 카프카에서 데이터 polling 하여 배송 데이터 생성
 
-쿠팡의 MSA 플랫폼
+## 쿠팡의 MSA 플랫폼
 https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EC%97%AC%EC%A0%95-a31fc2d5a572
 
 1. Configuration Management Database (CMDB)
@@ -36,3 +34,16 @@ https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%
 2. Coupang Deployment System
 - blue / green deployment strategy를 가진 cloud 기반의 웹 배포 시스템
 - 10초 이내 롤백을 지원하여 서비스 장애가 발생하더라도 빠르게 복구가 가능
+3. AB Test
+- A안 / B안을 전체 또는 일부 고객에게 노출하여 검증하는 시스템을 AB Test라고 부른다
+- 특정 A/B에 대하여 디바이스(아이폰, 안드로이드, PC)를 선택하고 노출빈도, 기간을 설정하면 자동으로 A/B 테스트가 진행된다. 이 테스트를 통하여 Gross Merchandise Volume, Conversion Rate 등의 지표가 어떻게 변화하는지 판단한다
+4. Coupang API Gateway
+- API Gateway를 자체적으로 구축
+5. Confidence System
+- 쿠팡의 Production 환경을 위한 배포 파이프라인은 Stage > Canary > All 단계로 구성
+- Stage : 사용자의 트래픽이 들어오지 않은 상태에서 테스트하는 Stage 단계
+- Canary : 신규 feature를 1대만 배포하여 사용자 트래픽을 제한적으로 받아 테스트 하는 Canary 단계
+- All : 신규 feature를 모든 서버에 배포하는 단계
+6. Circuit Breaker System
+ - 쿠팡은 Valve 라고 불리는 자체적인 Circuit Breaker System을 개발 운영
+ - 특정 서버의 장애가 발생하면, 자동으로 해당 서버를 제거하고 추가 서버를 자동으로 투입함으로써 특정 서버의 장애가 서비스의 장애로 확대하지 않도록 한다. 또한 장바구니 서비스의 장애가 발생하면, 상품 페이지에서 장바구니 버튼을 숨겨서 고객이 바로 주문으로 넘어가도록 유도해 장애를 회피할 수 있다
