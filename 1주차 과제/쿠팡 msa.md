@@ -1,39 +1,40 @@
-ÄíÆÎ MSA - Part1
+ì¿ íŒ¡ MSA - Part1
+
 https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EC%97%AC%EC%A0%95-94678fe9eb61
 
 
-±âÁ¸  Legacy Pain Point - ·¹°Å½Ã ±¸Á¶´Â ÇöÀç ¿ì¸® ±¸Á¶¶û ºñ½ÁÇØ º¸ÀÓ
+ê¸°ì¡´  Legacy Pain Point - ë ˆê±°ì‹œ êµ¬ì¡°ëŠ” í˜„ìž¬ ìš°ë¦¬ êµ¬ì¡°ëž‘ ë¹„ìŠ·í•´ ë³´ìž„
 
-1. ºÎºÐÀÇ Àå¾Ö°¡ ÀüÃ¼ÀÇ ¼­ºñ½º Àå¾Ö·Î È®´ëµÇ´Â ¹®Á¦°¡ ÀÖ´Ù.
- - ¹è¼ÛÀÇ Àå¾Ö°¡ ÁÖ¹®ÀÇ Àå¾Ö·Î±îÁö ÀÌ¾îÁ®¼­´Â ¾ÈµÈ´Ù.
-2. Monolithic architecture´Â ºÎºÐÀûÀÎ Scale-outÀ» ÇÏ±â ¾î·Æ´Ù.
- - ÇÊ¿äÇÑ ºÎºÐÀÇ Scale-outÀ» À§ÇØ ÀüÃ¼¸¦ Scale-outÇØ¾ßÇÑ´Â »óÈ²
-3. ¿©·¯ ÄÄÆ÷³ÍÆ®°¡ ÇÏ³ªÀÇ ¼­ºñ½º¿¡ °­°áÇÕ ÇüÅÂ·Î µÇ¾î ÀÖ¾î ¼­ºñ½ºÀÇ º¯°æÀÌ ¸Å¿ì ¾î·Æ°í, ¼öÁ¤½Ã Àå¾Ö ¿µÇâµµ¸¦ ÆÄ¾ÇÇÏ±â Èûµé´Ù.
- - ¸ð¿©¶ó ²Þµ¿»ê ¼Ò½ºÄÚµå (ex. pd-lib)
-4. ÀÛÀº º¯°æ¿¡µµ ³ôÀº ¼öÁØÀÇ Å×½ºÆ® ºñ¿ëÀÌ ¹ß»ýÇÑ´Ù.
- - ÁÖ¹®À» ¼öÁ¤Çß´Âµ¥ ¹è¼Û µ¥ÀÌÅÍ »ý¼º±îÁö Å×½ºÆ® ÇØ¾ßÇÏ´Â »óÈ² (¿¬°áµÇ¾îÀÖ´Ù¸é)
-5. Monolithic architecture¿¡¼­ Á¶Á÷(°³¹ßÀÚ/ÆÀ)ÀÌ ¼ºÀåÇÒ¼ö·Ï, ¹èÆ÷ÀÇ ´ë±â ½Ã°£ÀÌ ºñ¾àÀûÀ¸·Î Áõ°¡ÇÑ´Ù.
- - ex) pd-libÀÇ °£´ÜÇÑ ¼öÁ¤ÀÌÁö¸¸ ¾ôÈù ÄÚµå°¡ ¸¹¾Æ Á¤±â¹èÆ÷¸¦ ÀÌ¿ëÇØ¾ßÇÔ.
+1. ë¶€ë¶„ì˜ ìž¥ì• ê°€ ì „ì²´ì˜ ì„œë¹„ìŠ¤ ìž¥ì• ë¡œ í™•ëŒ€ë˜ëŠ” ë¬¸ì œê°€ ìžˆë‹¤.
+- ë°°ì†¡ì˜ ìž¥ì• ê°€ ì£¼ë¬¸ì˜ ìž¥ì• ë¡œê¹Œì§€ ì´ì–´ì ¸ì„œëŠ” ì•ˆëœë‹¤.
+2. Monolithic architectureëŠ” ë¶€ë¶„ì ì¸ Scale-outì„ í•˜ê¸° ì–´ë µë‹¤.
+ - í•„ìš”í•œ ë¶€ë¶„ì˜ Scale-outì„ ìœ„í•´ ì „ì²´ë¥¼ Scale-outí•´ì•¼í•œëŠ” ìƒí™©
+3. ì—¬ëŸ¬ ì»´í¬ë„ŒíŠ¸ê°€ í•˜ë‚˜ì˜ ì„œë¹„ìŠ¤ì— ê°•ê²°í•© í˜•íƒœë¡œ ë˜ì–´ ìžˆì–´ ì„œë¹„ìŠ¤ì˜ ë³€ê²½ì´ ë§¤ìš° ì–´ë µê³ , ìˆ˜ì •ì‹œ ìž¥ì•  ì˜í–¥ë„ë¥¼ íŒŒì•…í•˜ê¸° íž˜ë“¤ë‹¤.
+ - ëª¨ì—¬ë¼ ê¿ˆë™ì‚° ì†ŒìŠ¤ì½”ë“œ (ex. pd-lib)
+4. ìž‘ì€ ë³€ê²½ì—ë„ ë†’ì€ ìˆ˜ì¤€ì˜ í…ŒìŠ¤íŠ¸ ë¹„ìš©ì´ ë°œìƒí•œë‹¤.
+ - ì£¼ë¬¸ì„ ìˆ˜ì •í–ˆëŠ”ë° ë°°ì†¡ ë°ì´í„° ìƒì„±ê¹Œì§€ í…ŒìŠ¤íŠ¸ í•´ì•¼í•˜ëŠ” ìƒí™© (ì—°ê²°ë˜ì–´ìžˆë‹¤ë©´)
+5. Monolithic architectureì—ì„œ ì¡°ì§(ê°œë°œìž/íŒ€)ì´ ì„±ìž¥í• ìˆ˜ë¡, ë°°í¬ì˜ ëŒ€ê¸° ì‹œê°„ì´ ë¹„ì•½ì ìœ¼ë¡œ ì¦ê°€í•œë‹¤.
+ - ex) pd-libì˜ ê°„ë‹¨í•œ ìˆ˜ì •ì´ì§€ë§Œ ì–½ížŒ ì½”ë“œê°€ ë§Žì•„ ì •ê¸°ë°°í¬ë¥¼ ì´ìš©í•´ì•¼í•¨.
 
-ÄíÆÎÀÇ MSA Àü·«
+ì¿ íŒ¡ì˜ MSA ì „ëžµ
 
-1. Vitamin FrameworkÀÇ °³¹ß 
-- micro service architecture¸¦ À§ÇÑ Java ±â¹ÝÀÇ framework
-- micro service architecture¸¦ À§ÇÑ Ç¥ÁØ skeleton code templateÀ» Æ÷ÇÔ.
-- Ç¥ÁØ skeleton code template¿¡´Â ÀÛÀº µµ¸ÞÀÎ ´ÜÀ§ÀÇ front / api / batch / back-office ¼­ºñ½º¸¦ ½±°Ô °³¹ßÇÏ±â À§ÇÑ ±âº» ÄÚµåµéÀÌ Æ÷ÇÔµÇ¾î ÀÖÀ¸¸ç, ÄíÆÎ¿¡¼­ °³¹ßÇÑ ´Ù¾çÇÑ Ç¥ÁØ ¶óÀÌºê·¯¸®µéµµ ½±°Ô »ç¿ëÇÒ ¼ö ÀÖµµ·Ï µÇ¾î ÀÖÀ½.
-- µµ¸ÞÀÎÆÀ¿¡¼­ º°´Ù¸¥ ³ë·Â¾øÀÌ Å×½ºÆ®, ¹èÆ÷, ¸ð´ÏÅÍ¸µ, ÀÚµ¿ º¹±¸°¡ °¡´ÉÇÏ¸ç, Message Queue, Cache µî ¸ðµç platform ¼­ºñ½º¿Í ½±°Ô ¿¬µ¿
+1. Vitamin Frameworkì˜ ê°œë°œ 
+- micro service architectureë¥¼ ìœ„í•œ Java ê¸°ë°˜ì˜ framework
+- micro service architectureë¥¼ ìœ„í•œ í‘œì¤€ skeleton code templateì„ í¬í•¨.
+- í‘œì¤€ skeleton code templateì—ëŠ” ìž‘ì€ ë„ë©”ì¸ ë‹¨ìœ„ì˜ front / api / batch / back-office ì„œë¹„ìŠ¤ë¥¼ ì‰½ê²Œ ê°œë°œí•˜ê¸° ìœ„í•œ ê¸°ë³¸ ì½”ë“œë“¤ì´ í¬í•¨ë˜ì–´ ìžˆìœ¼ë©°, ì¿ íŒ¡ì—ì„œ ê°œë°œí•œ ë‹¤ì–‘í•œ í‘œì¤€ ë¼ì´ë¸ŒëŸ¬ë¦¬ë“¤ë„ ì‰½ê²Œ ì‚¬ìš©í•  ìˆ˜ ìžˆë„ë¡ ë˜ì–´ ìžˆìŒ.
+- ë„ë©”ì¸íŒ€ì—ì„œ ë³„ë‹¤ë¥¸ ë…¸ë ¥ì—†ì´ í…ŒìŠ¤íŠ¸, ë°°í¬, ëª¨ë‹ˆí„°ë§, ìžë™ ë³µêµ¬ê°€ ê°€ëŠ¥í•˜ë©°, Message Queue, Cache ë“± ëª¨ë“  platform ì„œë¹„ìŠ¤ì™€ ì‰½ê²Œ ì—°ë™
 2. Provider helper library (api-adapter)
-- Æ¯Á¤ API¸¦ »ç¿ëÇÏ±â À§ÇÏ¿© ¸ðµç clientµéÀº HTTP Åë½ÅÇÏ´Â ¸ðµâÀ» ¸¸µé°í, json ÇüÅÂÀÇ API¸¦ È£ÃâÇÑ µÚ Object·Î ¸ÅÇÎÇÏ´Â ·ÎÁ÷À» ±¸ÇöÇÏ¿©¾ß ÇÑ´Ù.
-- ÄíÆÎÀº Provider helper library (api-adapter)¸¦ °°ÀÌ Á¦°øÇÏ¿© API¸¦ ½±°Ô »ç¿ëÇÒ ¼ö ÀÖ´Â Àü·«À» ÃëÇÏ¿´´Ù.
-3. Message Queue¸¦ ÀÌ¿ëÇÑ Transaction ÀÇ ºÐ¸®
-- ÁÖ¹® µ¥ÀÌÅÍ »ý¼º ÈÄ Ä«ÇÁÄ«·Î message Àü¼Û ¹è¼ÛÀº Ä«ÇÁÄ«¿¡¼­ µ¥ÀÌÅÍ polling ÇÏ¿© ¹è¼Û µ¥ÀÌÅÍ »ý¼º
+- íŠ¹ì • APIë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•˜ì—¬ ëª¨ë“  clientë“¤ì€ HTTP í†µì‹ í•˜ëŠ” ëª¨ë“ˆì„ ë§Œë“¤ê³ , json í˜•íƒœì˜ APIë¥¼ í˜¸ì¶œí•œ ë’¤ Objectë¡œ ë§¤í•‘í•˜ëŠ” ë¡œì§ì„ êµ¬í˜„í•˜ì—¬ì•¼ í•œë‹¤.
+- ì¿ íŒ¡ì€ Provider helper library (api-adapter)ë¥¼ ê°™ì´ ì œê³µí•˜ì—¬ APIë¥¼ ì‰½ê²Œ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” ì „ëžµì„ ì·¨í•˜ì˜€ë‹¤.
+3. Message Queueë¥¼ ì´ìš©í•œ Transaction ì˜ ë¶„ë¦¬
+- ì£¼ë¬¸ ë°ì´í„° ìƒì„± í›„ ì¹´í”„ì¹´ë¡œ message ì „ì†¡ ë°°ì†¡ì€ ì¹´í”„ì¹´ì—ì„œ ë°ì´í„° polling í•˜ì—¬ ë°°ì†¡ ë°ì´í„° ìƒì„±
 
-ÄíÆÎÀÇ MSA ÇÃ·§Æû
+ì¿ íŒ¡ì˜ MSA í”Œëž«í¼
 https://medium.com/coupang-tech/%ED%96%89%EB%B3%B5%EC%9D%84-%EC%B0%BE%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EC%97%AC%EC%A0%95-a31fc2d5a572
 
 1. Configuration Management Database (CMDB)
-- ÄíÆÎÀÇ CMDB ½Ã½ºÅÛÀº ¼­ºñ½º¿Í ¼­ºñ½º¸¦ ±¸¼ºÇÏ´Â ¸ðµç ÀÚ¿øµéÀ» À§ÇÑ ¸ÞÅ¸ DBÀÌ¸ç, Key/Value Collection À¸·Î ±¸¼ºµÈ metadata°¡ »óÈ£°£ °ü°è¸¦ °¡Áö´Â ±¸Á¶.
-- Áö±Ý ¿ì¸®°¡ ±¸¼ºÇÏ´Â Rancher °°Àº ¿ªÈ°ÀÎµí?
+- ì¿ íŒ¡ì˜ CMDB ì‹œìŠ¤í…œì€ ì„œë¹„ìŠ¤ì™€ ì„œë¹„ìŠ¤ë¥¼ êµ¬ì„±í•˜ëŠ” ëª¨ë“  ìžì›ë“¤ì„ ìœ„í•œ ë©”íƒ€ DBì´ë©°, Key/Value Collection ìœ¼ë¡œ êµ¬ì„±ëœ metadataê°€ ìƒí˜¸ê°„ ê´€ê³„ë¥¼ ê°€ì§€ëŠ” êµ¬ì¡°.
+- ì§€ê¸ˆ ìš°ë¦¬ê°€ êµ¬ì„±í•˜ëŠ” Rancher ê°™ì€ ì—­í™œì¸ë“¯?
 2. Coupang Deployment System
-- blue / green deployment strategy¸¦ °¡Áø cloud ±â¹ÝÀÇ À¥ ¹èÆ÷ ½Ã½ºÅÛ
-- 10ÃÊ ÀÌ³» ·Ñ¹éÀ» Áö¿øÇÏ¿© ¼­ºñ½º Àå¾Ö°¡ ¹ß»ýÇÏ´õ¶óµµ ºü¸£°Ô º¹±¸°¡ °¡´É
+- blue / green deployment strategyë¥¼ ê°€ì§„ cloud ê¸°ë°˜ì˜ ì›¹ ë°°í¬ ì‹œìŠ¤í…œ
+- 10ì´ˆ ì´ë‚´ ë¡¤ë°±ì„ ì§€ì›í•˜ì—¬ ì„œë¹„ìŠ¤ ìž¥ì• ê°€ ë°œìƒí•˜ë”ë¼ë„ ë¹ ë¥´ê²Œ ë³µêµ¬ê°€ ê°€ëŠ¥
