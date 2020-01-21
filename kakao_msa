@@ -1,0 +1,54 @@
+- 카카오 광고 플랫폼 (DSP) MSA
+https://www.slideshare.net/ifkakao/msa-api-gateway
+
+1. 플랫폼의 이해
+
+DSP : Demand side Platform - 광고주를 위한 광고 플랫폼
+SSP : Supply Side Platform - 매체를 위한 플랫폼. 여러 애드 네트워크, 애드 익스체인지, DSP를 연동하여 더 높은 고강고비를 지불할 광고주를 찾음
+AD Exchange : 여러 애드 네트워크들을 모아 중개하는 플랫폼
+
+광고주, 대행사, 관리자, 심사자, Aggregation 서버로 구현
+
+https://brunch.co.kr/@cheolhwanch/12
+
+2. API GATEWAY : NETFLIX ZUUL 채택
+
+- java
+- Spring Framework
+- Simple
+
+3. 그 외 채택 서비스
+
+- Service Discovery : EUREKA
+- Routing Proxy : Zuul
+- Trace Service : zipkin
+- Load Balancing : Ribbon
+- Circuit Breaker : Hystrix
+- Rest Client : Feign
+
+* Ribbon
+- 클라이언트 측 로드 밸런서
+- HTTP와 TCP 클라이언트의 행동을 제어하는 간단한 인터페이스를 제공
+- 여러 서버를 라운드로빈 방식의 부하 분산 기능을 제공(여러 알고리즘 사용 가능)
+- Spring Cloud Config와 결합하여, 서버 목록을 제공받아 사용할 수 있음
+- 리본 자체만으로는 서버 추가시 다시 빌드 후 배포해야함
+- Eureka와 함께 활용하여 재빌드/배포없이 무중단으로 적용가능. 왜냐면 Eureka를 통해 동적 서비스 등록 및 발견이 가능
+
+* zipkin
+- 트위터에서 사용하는 분산 환경 추적 시스템
+- Collector, Query Service, DataBase, WebUI 로 구성
+- 각각의 마이크로서비스에서 실행 로그를 Collector에 전달 
+- 이전의 Trace ID를 HTTP Header를 통해 각 서비스로 운반하므로, 장애 발생시 역추적이 가능 
+- https://brunch.co.kr/@springboot/58
+
+* Feign 
+- 선언적인 REST 클라이언트
+- 선언적으로 인터페이스를 작성하고 어노테이션을 선언하기만 하면 되기에 매우 심플
+- Feign VS Rest Client : https://youtu.be/4Y3_V-QOBKc
+
+4. 장애 대응 사례
+- 특정 Service에서 장애 발생
+- Connetction Timeout 증가
+- Hystrix Circuit Breaker 적용하여 서킷 open 처리
+- Ribbon을 통해 Load Balancing : RR이 기본이나,  서버가 현재 처리가능한지주기적으로  체크(ping) 
+- Ribbon이 문제 발생한 서버 목록 제외 
